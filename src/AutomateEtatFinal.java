@@ -7,6 +7,10 @@ public class AutomateEtatFinal {
     private int[][] transitions;
     private boolean[] finalState;
 
+    public AutomateEtatFinal() {
+
+    }
+
 
     public AutomateEtatFinal(char[] aphabet, int[][] transitions, boolean[] finalState) {
 
@@ -27,7 +31,7 @@ public class AutomateEtatFinal {
     }
 
     /**
-     * Return the assicieted integer for a alphabet item
+     * Return the assicieted integer for an alphabet item
      *
      * @param caractere the caractere
      * @return the int
@@ -75,7 +79,54 @@ public class AutomateEtatFinal {
         return finalState[etat];
     }
 
+    public void printAutomate() {
+
+        // Affiche les lettres dans une seulle ligne
+        System.out.print("   ");
+        for (int i = 0; i < aphabet.length; i++) {
+            System.out.print(aphabet[i] + "  ");
+        }
 
 
+        // saut de ligne
+        System.out.println("");
 
+        for (int i = 0; i < transitions.length; i++) {
+            System.out.print((i + 1) + "  ");
+            for (int j = 0; j < transitions[i].length; j++) {
+                System.out.print((transitions[i][j] + 1) + "  ");
+            }
+            System.out.println("");
+        }
+    }
+
+
+    public static void printAutomate(char[] aphabet, int[][] transitions, boolean[] finalState) {
+
+        // Affiche les lettres dans une seulle ligne
+        System.out.print("   ");
+        for (int i = 0; i < aphabet.length; i++) {
+            System.out.print(aphabet[i] + "  ");
+        }
+
+
+        // saut de ligne
+        System.out.println("");
+
+        for (int i = 0; i < transitions.length; i++) {
+            System.out.print((i + 1) + "  ");
+            for (int j = 0; j < transitions[i].length; j++) {
+                System.out.print((transitions[i][j] + 1) + "  ");
+            }
+            System.out.println("");
+        }
+    }
+
+    /**
+     * Test if an automate is set or not yet
+     * @return
+     */
+    public boolean isEmpty() {
+        return aphabet == null && transitions == null && finalState == null;
+    }
 }
